@@ -1,23 +1,23 @@
 fetch("https://restcountries.com/v3.1/all")
   .then((response) => response.json())
   .then((data) => {
-    var ulkeler = data;
+    var countries = data;
     var mainDiv = document.createElement("div");
     mainDiv.className = "main";
 
-    ulkeler.forEach(function (ulke) {
+    countries.forEach(function (country) {
       var cardDiv = document.createElement("div");
       cardDiv.className = "card"; 
 
       var imgElemnt = document.createElement("img");
-      imgElemnt.src = ulke.flags.png;
+      imgElemnt.src = country.flags.png;
 
       var countryName = document.createElement("li");
-      countryName.textContent = ulke.name.common;
+      countryName.textContent = country.name.common;
       countryName.className = "countryName";
 
       var capital = document.createElement("div");
-      capital.textContent = ulke.capital;
+      capital.textContent = country.capital;
 
       cardDiv.appendChild(imgElemnt);
       cardDiv.appendChild(countryName);
